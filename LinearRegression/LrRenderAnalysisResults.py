@@ -15,7 +15,7 @@ def LRRenderAnalysisResults():
                 st.pyplot(st.session_state.regression_plot)
             
             with col2:
-                plot_bytes = convert.convert_plt_to_bytes(st.session_state.regression_plot)
+                plot_bytes = convert.ConvertPltToBytes(st.session_state.regression_plot)
                 
                 st.download_button(
                     label="⬇️ 下载图表",
@@ -45,7 +45,7 @@ def LRRenderAnalysisResultsPredict():
                 st.pyplot(st.session_state.regression_plot_predict)
             
             with col2:
-                plot_bytes = convert.convert_plt_to_bytes(st.session_state.regression_plot_predict)
+                plot_bytes = convert.ConvertPltToBytes(st.session_state.regression_plot_predict)
                 
                 st.download_button(
                     label="⬇️ 下载图表",

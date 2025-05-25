@@ -6,7 +6,8 @@ import matplotlib.pyplot as plt
 
 import default.InitSessionState
 from RenderSidebarUnit import RenderSidebar
-from LinearRegression import RenderAnalysisResults
+from LinearRegression import LrRenderAnalysisResults
+from HeatMap import HmRenderAnalysisResults
 
 
 
@@ -65,14 +66,12 @@ def Results():
     #     # TODO:这里绘制 图案渲染结果
     #     pass
     if "regression_plot" in st.session_state and st.session_state.regression_plot is not None:
-        RenderAnalysisResults.LRRenderAnalysisResults()
+        LrRenderAnalysisResults.LRRenderAnalysisResults()
         st.info("👈 请在左侧输入预测值,显示预测分析图", icon="ℹ️")
         if st.session_state.regression_plot_predict is not None:
-            RenderAnalysisResults.LRRenderAnalysisResultsPredict()
-            
-    elif "heatmap_pic" in st.session_state and st.session_state.heatmap_pic is not None:
-        pass
-    
+            LrRenderAnalysisResults.LRRenderAnalysisResultsPredict()
+    elif "hm" in st.session_state and st.session_state.hm is not None:
+        HmRenderAnalysisResults.HmRenderAnalysisResults()
     else:
         st.info("👈 请在左侧输入预测值,显示预测分析图", icon="ℹ️")
         

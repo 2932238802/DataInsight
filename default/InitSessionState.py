@@ -16,8 +16,25 @@ def InitSessionState():
         "lrcol_plt_kind":None,      
         "lrcol_plt_color":None,
         "regression_plot":None,
-        "regression_plot_predict":None
+        "regression_plot_predict":None,
         
+        "hmcol_width":None,
+        "hmcol_height":None,
+        "hmlinewidths":None , # 线条宽度
+        "hmannot":None,
+        "hmcmap":None,
+        "hmcenter":None,
+        "hm":None,             # 热力图
+        
+        "ra_width":None,
+        "ra_height":None,
+        "raselect_poject":None,      # 选择的行
+        "raselect_labels":None,
+        "ra_fillalpha":None,
+        "ra_fillcolor":None,
+        "ra_linewidth":None,
+        "ra_linecolor":None,
+        "ra_title_name":None,
     }
     for key, value in session_defaults.items():
         if key not in st.session_state:

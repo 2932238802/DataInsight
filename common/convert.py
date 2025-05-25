@@ -1,7 +1,7 @@
 import io
 import matplotlib.pyplot as plt
 
-def convert_plt_to_bytes(fig, format: str = 'png', dpi: int = 300) -> bytes:
+def ConvertPltToBytes(fig, format: str = 'png', dpi: int = 300) -> bytes:
     
     """
     将 Matplotlib 图表转换为字节数据

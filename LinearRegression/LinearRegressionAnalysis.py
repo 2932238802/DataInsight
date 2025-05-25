@@ -19,7 +19,6 @@ class LinearRegressionAnalysis:
     
     @staticmethod
     def ValidateColumns(df, x_col, y_col) -> bool:
-        """验证列是否合法"""
         return (
             # x y 在里面
             # x和y 不同
@@ -31,7 +30,7 @@ class LinearRegressionAnalysis:
         )
 
     @staticmethod
-    def PrepareData(df, x_col, y_col) -> tuple:
+    def PrepareData(df,x_col, y_col) -> tuple:
         
         # astype 强制转换数据类型为 float64，确保数值精度
         X = df[[x_col]].values.astype(np.float64)

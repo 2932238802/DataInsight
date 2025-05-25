@@ -2,6 +2,8 @@ import streamlit as st
 import numpy as np
 
 from LinearRegression.RenderLinearRegression import RenderLinearRegression
+from HeatMap.RenderHeatMap import RenderHeatMap
+from Radar.RenderRadar import RenderRadar
 import default.InitSessionState
 
 
@@ -32,18 +34,23 @@ def RenderAnalysis():
     
     plot_type = st.selectbox(
         " 🧩 选择图表类型:",
-        ["散点图", "热力图", "简单线性回归图"],
+        ["雷达图", "热力图", "简单线性回归图"],
         key="plot_type_selector",
         on_change=TurnNone
     )
     
     if plot_type == "简单线性回归图":
         with st.expander("🛠️ 线性回归参数设置", expanded=True):
+            default.InitSessionState.InitSessionState()
             RenderLinearRegression(numerical_cols)
     
     if plot_type == "热力图":
         with st.expander("🛠️ 线性回归参数设置", expanded=True):
-            # TODO:这里完成热力图渲染
-            pass
-        
+            default.InitSessionState.InitSessionState()
+            RenderHeatMap(numerical_cols)
+            
+    if plot_type == "雷达图":
+        with st.expander("🛠️ 线性回归参数设置", expanded=True):
+            default.InitSessionState.InitSessionState()
+            RenderRadar(numerical_cols)
             

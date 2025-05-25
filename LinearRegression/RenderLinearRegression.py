@@ -53,7 +53,7 @@ def RenderLinearRegression(numerical_cols):
     with lrcol_height:
         st.session_state.lrcol_height = st.selectbox(
             "选择图像高度(6 较为合适英寸)",
-            pltconfig.PKTHEIGHT,
+            pltconfig.PLTHEIGHT,
             index = 2 if len(pltconfig.PLTWIDTH) > 2 else len(pltconfig.PLTWIDTH) - 1,
             key = "lrheight",
             help = "绘制图案的高"
