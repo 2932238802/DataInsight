@@ -26,9 +26,10 @@ def InitSessionState():
         "hmcenter":None,
         "hm":None,             # 热力图
         
+        "ra":None,
         "ra_width":None,
         "ra_height":None,
-        "raselect_poject":None,      # 选择的行
+        "raselect_project":None,      # 选择的行
         "raselect_labels":None,
         "ra_fillalpha":None,
         "ra_fillcolor":None,

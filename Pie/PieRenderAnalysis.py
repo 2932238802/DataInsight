@@ -2,13 +2,13 @@
 import streamlit as st
 from common import convert
 
-def RaRenderAnalysis():
-    if st.session_state.get('ra') is not None: 
-        with st.expander("📈 雷达图", expanded=True):
+def PieRenderAnalysis():
+    if st.session_state.get('pie') is not None: 
+        with st.expander("📈 饼状图 ", expanded=True):
             col1, col2 = st.columns([5, 1])
             
             with col1:
-                st.pyplot(st.session_state.ra)
+                st.pyplot(st.session_state.pie)
                 
             with col2:
                 plot_bytes = convert.ConvertPltToBytes(st.session_state.ra)

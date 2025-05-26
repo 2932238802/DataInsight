@@ -4,6 +4,7 @@ import numpy as np
 from LinearRegression.RenderLinearRegression import RenderLinearRegression
 from HeatMap.RenderHeatMap import RenderHeatMap
 from Radar.RenderRadar import RenderRadar
+from Pie.RenderPie import RenderPie
 import default.InitSessionState
 
 
@@ -27,14 +28,24 @@ def RenderAnalysis():
     
     # 获取数据
     # 返回列表
-    if df is None or df.empty:  # 同时检查None和空DataFrame
+    # numerical_cols 包含只有数据
+    if df is None or df.empty:  
         st.info("**🤡 请输入文件哦**")
         return
     numerical_cols = df.select_dtypes(include=np.number).columns.tolist()
     
     plot_type = st.selectbox(
         " 🧩 选择图表类型:",
-        ["雷达图", "热力图", "简单线性回归图"],
+        [
+            "雷达图", 
+            "热力图", 
+            "简单线性回归图",
+            "柱状图&条形图",
+            "饼图",
+            "箱线图",
+            "词云"
+        ],
+        
         key="plot_type_selector",
         on_change=TurnNone
     )
@@ -52,5 +63,9 @@ def RenderAnalysis():
     if plot_type == "雷达图":
         with st.expander("🛠️ 线性回归参数设置", expanded=True):
             default.InitSessionState.InitSessionState()
-            RenderRadar(numerical_cols)
+            RenderRadar()
             
+    if plot_type == "饼图":
+        with st.expander("🛠️ 线性回归参数设置", expanded=True):
+            default.InitSessionState.InitSessionState()
+            RenderPie()
