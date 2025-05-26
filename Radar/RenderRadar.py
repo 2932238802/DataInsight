@@ -1,8 +1,11 @@
 
 import streamlit as st
+
 from common import pltconfig
-import pandas as pd
 import common.pltconfig 
+
+
+import pandas as pd
 from Radar import RadarAnalysis
 
 def RenderRadar():
@@ -30,17 +33,17 @@ def RenderRadar():
                 )
                 return False
         
-    radar_width, radar_height = st.columns(2)
+    radar_width_cols, radar_height_cols = st.columns(2)
     
-    st.session_state.ra_title_name = st.text_input(
+    st.session_state.ratitle_name = st.text_input(
         label="请输入标题名字",
         value="雷达图",
-        key="ratitle_name"
+        key="radar_title_name"
     )
     
     # 宽度
-    with radar_width:
-        st.session_state.ra_width = st.selectbox(
+    with radar_width_cols:
+        st.session_state.rawidth = st.selectbox(
             "✍️ 选择图像宽度(英寸)",
             options=pltconfig.PLTWIDTH,  
             index=5 if len(pltconfig.PLTWIDTH) > 5 else len(pltconfig.PLTWIDTH) - 1,
@@ -49,8 +52,8 @@ def RenderRadar():
         )
         
     # 高度
-    with radar_height:
-        st.session_state.ra_height = st.selectbox(
+    with radar_height_cols:
+        st.session_state.raheight = st.selectbox(
             "🦘 选择图像高度(英寸)",
             options=pltconfig.PLTWIDTH,  
             index=2 if len(pltconfig.PLTHEIGHT) > 2 else len(pltconfig.PLTHEIGHT) - 1,
@@ -69,7 +72,7 @@ def RenderRadar():
             "请选择对应的项目",
             projects,
             index = 0,
-            key = "ra_select_project",
+            key = "radar_select_project",
             help= "指定对应的行"
         )
     st.session_state.raselect_project = ra_choose_project
@@ -79,7 +82,7 @@ def RenderRadar():
             label= "选择对应的属性",
             options=df.columns[1:].tolist(),
             default=df.columns[1:].tolist(), 
-            key = "ra_select_labels",
+            key = "radar_select_labels",
             help = "绘制对应雷达图所需的属性"
         )
     st.session_state.raselect_labels = ra_choose_choices
@@ -88,48 +91,48 @@ def RenderRadar():
     ra_linecolor,ra_linewidth = st.columns(2)
     
     with ra_linecolor:
-        st.session_state.ra_linecolor = st.selectbox(
+        st.session_state.ralinecolor = st.selectbox(
             label= "选择雷达图边缘线颜色",
             options = common.pltconfig.COLOR,
             index= 0,
-            key = "ralinecolor"
+            key = "radar_linecolor"
         )
     with ra_linewidth:
-        st.session_state.ra_linewidth = st.slider(
+        st.session_state.ralinewidth = st.slider(
             label = "边缘线的厚度",
             min_value= 0.1,
             max_value= 2.0,
             value= 1.0,
             step = 0.05,
-            key = "arlinewidth"
+            key = "radar_linewidth"
         )
     
     ra_fillcolor,ra_fillalpha = st.columns(2)
     
     with ra_fillcolor:
-        st.session_state.ra_fillcolor = st.selectbox(
+        st.session_state.rafillcolor = st.selectbox(
             label = "填充颜色",
             options = common.pltconfig.COLOR,
             index= 0,
-            key = "rafillcolor"
+            key = "radar_fillcolor"
         )
         
     with ra_fillalpha:
-        st.session_state.ra_fillalpha = st.slider(
+        st.session_state.rafillalpha = st.slider(
             label = "填充的透明度",
             min_value = 0.0,
             max_value = 1.0,
             value = 0.8,
             step = 0.05,
-            key = "arlinealpha"
+            key = "radar_linealpha"
         )
     
     if st.button(" 🫏 开始渲染", key="run_heatmap"):
         PerformRa()
         
 def PerformRa():
-    width = st.session_state.ra_width
-    height = st.session_state.ra_height
+    width = st.session_state.rawidth
+    height = st.session_state.raheight
     labels = st.session_state.raselect_labels
     
     # 获取二维组
@@ -148,11 +151,11 @@ def PerformRa():
         st.error(" 🤡 数据错误!")
         return 
     
-    titlename = st.session_state.ra_title_name
-    linecolor = st.session_state.ra_linecolor
-    linewidth = st.session_state.ra_linewidth
-    fillalpha =  st.session_state.ra_fillalpha
-    fillcolor = st.session_state.ra_fillcolor
+    titlename = st.session_state.ratitle_name
+    linecolor = st.session_state.ralinecolor
+    linewidth = st.session_state.ralinewidth
+    fillalpha =  st.session_state.rafillalpha
+    fillcolor = st.session_state.rafillcolor
     fig = RadarAnalysis.RadarAnalysis.Draw(
         width=width,
         height=height,

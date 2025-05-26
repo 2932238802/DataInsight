@@ -5,6 +5,7 @@ from LinearRegression.RenderLinearRegression import RenderLinearRegression
 from HeatMap.RenderHeatMap import RenderHeatMap
 from Radar.RenderRadar import RenderRadar
 from Pie.RenderPie import RenderPie
+from Bar.RenderBar import RenderBar
 import default.InitSessionState
 
 
@@ -13,6 +14,9 @@ def TurnNone():
     keys_to_reset = [
         'regression_plot',
         'regression_plot_predict',
+        'pie',
+        'ra',
+        'hm',
     ]
     
     for key in keys_to_reset:
@@ -56,16 +60,21 @@ def RenderAnalysis():
             RenderLinearRegression(numerical_cols)
     
     if plot_type == "热力图":
-        with st.expander("🛠️ 线性回归参数设置", expanded=True):
+        with st.expander("🛠️ 热力图参数设置", expanded=True):
             default.InitSessionState.InitSessionState()
             RenderHeatMap(numerical_cols)
             
     if plot_type == "雷达图":
-        with st.expander("🛠️ 线性回归参数设置", expanded=True):
+        with st.expander("🛠️ 雷达图参数设置", expanded=True):
             default.InitSessionState.InitSessionState()
             RenderRadar()
             
     if plot_type == "饼图":
-        with st.expander("🛠️ 线性回归参数设置", expanded=True):
+        with st.expander("🛠️ 饼图参数设置", expanded=True):
             default.InitSessionState.InitSessionState()
             RenderPie()
+
+    if plot_type == "柱状图&条形图":
+        with st.expander("🛠️ 柱状图&条形图参数设置", expanded=True):
+            default.InitSessionState.InitSessionState()
+            RenderBar()

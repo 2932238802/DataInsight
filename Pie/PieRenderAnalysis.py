@@ -11,12 +11,12 @@ def PieRenderAnalysis():
                 st.pyplot(st.session_state.pie)
                 
             with col2:
-                plot_bytes = convert.ConvertPltToBytes(st.session_state.ra)
+                plot_bytes = convert.ConvertPltToBytes(st.session_state.pie)
                 
                 st.download_button(
                     label="⬇️ 下载图表",
                     data=plot_bytes,
-                    file_name=f"{st.session_state.ra_title_name}.png",
+                    file_name=f"{st.session_state.pie_title_name}.png",
                     mime="image/png",
                     help="下载PNG格式的高清图表",
                     use_container_width=True,

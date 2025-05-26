@@ -10,6 +10,7 @@ from LinearRegression import LrRenderAnalysisResults
 from HeatMap import HmRenderAnalysisResults
 from Radar import RaRenderAnalysis
 from Pie import PieRenderAnalysis
+from Bar import BarRenderAnalysisResults
 
 from LearningIndex import LearningIndex
 
@@ -74,7 +75,10 @@ def Results():
         
     elif "pie" in st.session_state and st.session_state.pie is not None:
         PieRenderAnalysis.PieRenderAnalysis()
-        
+    
+    elif st.session_state.bar_1 is not None and st.session_state.bar_2 is not None:
+        BarRenderAnalysisResults.BarRenderAnalysisResults()
+
     else:
         st.info("👈 请在左侧输入预测值,显示预测分析图", icon="ℹ️")
 

@@ -27,15 +27,39 @@ def InitSessionState():
         "hm":None,             # 热力图
         
         "ra":None,
-        "ra_width":None,
-        "ra_height":None,
+        "rawidth":None,
+        "raheight":None,
         "raselect_project":None,      # 选择的行
         "raselect_labels":None,
-        "ra_fillalpha":None,
-        "ra_fillcolor":None,
-        "ra_linewidth":None,
-        "ra_linecolor":None,
-        "ra_title_name":None,
+        "rafillalpha":None,
+        "rafillcolor":None,
+        "ralinewidth":None,
+        "ralinecolor":None,
+        "ratitle_name":None,
+        
+        "pietitle_name":None,
+        "pieheight":None,
+        "piewidth":None,
+        "pielabels":None,
+        "piesizes":None,
+        "pieshadow":None,
+        "piestartangle":None,
+        "piecolor_theme":None,
+        
+        "bar_1":None,
+        "bar_2":None,
+        "barx_label":None,
+        "bary_label":None,
+        "barcategories":None,
+        "barvalues":None,
+        "barwidth":None,
+        "barheight":None,
+        "barinnerwidth":None,
+        "barinnerheight":None,
+        "barcolor":None,
+        "baredgecolor":None,
+        "bargridis_1":None,
+        "bargridis_2":None
     }
     for key, value in session_defaults.items():
         if key not in st.session_state:

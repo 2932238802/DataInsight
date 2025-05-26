@@ -123,7 +123,6 @@ class LinearRegressionAnalysis:
             
             # alpha 透明度
             # 网格线
-            # TODO: 是否需要网格线
         ax.grid(
                 visible=grid_is, 
                 alpha=grid_alpha
