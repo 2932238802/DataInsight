@@ -68,6 +68,3 @@ class SA:
         return best_x, best_y
 
     
-    
-    
-    

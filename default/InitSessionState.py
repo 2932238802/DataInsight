@@ -73,7 +73,6 @@ def InitSessionState():
         "bargridis_1":None,
         "bargridis_2":None,
         
-        # 内网穿透
         "ngrok_tunnel_active":None,
         "ngrok_public_url":None,
         "ngrok_error":None

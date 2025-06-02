@@ -51,7 +51,6 @@ def YieldExpression():
             st.error(f"表达式生成失败: {e}")
             st.session_state.equation = None
 
-# 构建表达式
 def RenderEditor():
     """
         实现输入表达式的功能

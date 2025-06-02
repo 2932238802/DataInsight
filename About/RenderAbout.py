@@ -1,5 +1,3 @@
-
-
 import streamlit as st
 
 def RenderAbout():
@@ -33,6 +31,4 @@ def RenderAbout():
         ---
         [项目源码](https://github.com/2932238802/DataInsight.git)
         """
-        # 如果您有使用条款和隐私政策的链接:
-        # [使用条款]({terms_url}) | [隐私政策]({privacy_url})
     )

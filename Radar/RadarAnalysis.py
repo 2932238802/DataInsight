@@ -41,26 +41,16 @@ class RadarAnalysis:
                 return False
         return True
     
-    
     @staticmethod
     def Draw(
-        # 尺寸 宽
         width: int,
-        # 尺寸 高
         height:int,
-        # 标签
         labels: list,
-        # 数据
         stats: list,
-        # 标题名字
         titlename:str,
-        # 线的颜色
         linecolor:str,
-        
         linewidth:float,
-        
         fill_alpha,
-        # 填充颜色
         fill_color:str
              ):
         

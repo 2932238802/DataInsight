@@ -12,7 +12,6 @@ NGROK_AUTHTOKEN_FROM_ENV= os.getenv("NGROK_AUTHTOKEN")
 pyngrok_config_overrides = {
     "ngrok_path": NGROK_EXE_PATH,
     "auth_token": NGROK_AUTHTOKEN_FROM_ENV, 
-    # "region": "jp"  
     }
 
 new_config = conf.PyngrokConfig(**pyngrok_config_overrides)

@@ -31,15 +31,10 @@ class LinearRegressionAnalysis:
 
     @staticmethod
     def PrepareData(df,x_col, y_col) -> tuple:
-        
         # astype 强制转换数据类型为 float64，确保数值精度
         X = df[[x_col]].values.astype(np.float64)
         y = df[y_col].values.astype(np.float64)
         
-        # ~ 逻辑非运算符
-        # np.isnan()：检查数组中的每个元素是否为 NaN（Not a Number），返回布尔数组
-        # axis=0：表示列方向（垂直方向）
-        # axis=1：表示行方向（水平方向）
         valid_data = (~np.isnan(X).any(axis=1)) & (~np.isnan(y))
         return X[valid_data], y[valid_data]
 

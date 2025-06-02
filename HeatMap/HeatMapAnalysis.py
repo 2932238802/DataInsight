@@ -26,7 +26,6 @@ class HeatMapAnalysis:
             center (_type_): 是不是需要居中
             linewidths (_type_): 线条宽度
             linecolor (_type_): 线条颜色
-
         Returns:
             返回图表
         """
@@ -39,5 +38,4 @@ class HeatMapAnalysis:
             linewidths=linewidths,
             linecolor= linecolor,
         )
-        
         return fig

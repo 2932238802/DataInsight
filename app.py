@@ -1,14 +1,8 @@
-#!/usr/bin/env python3
-#coding: utf-8
-
 # -----------------------------------------------------------------------------
 # Copyright (c) 2025，5 [LosAngelous]
 # 作者: LosAngelous
 # 团队 Lsj & Yxy 
 # -----------------------------------------------------------------------------
-
-
-
 
 # -----------------------------------------------------------------------------
 # 内置库的设置
@@ -37,7 +31,6 @@ from About import RenderAbout
 from Ngrok import RenderNgrok
 from LearningIndex import LearningIndex
 
-
 # -----------------------------------------------------------------------------
 # 这里是读取本地的 env 文件token 这样便于 启动 ngrok
 # 当然了 这是我自己的 token 你可以访问我的github去了解一下
@@ -49,10 +42,6 @@ if NGROK_AUTHTOKEN_FROM_ENV:
     print("Ngrok Authtoken loaded from .env file")
 else:
     print("Warning: NGROK_AUTHTOKEN not found in .env file or environment variables Ngrok might have limitations")
-    
-
-
-
 
 # -----------------------------------------------------------------------------
 # 项目主要入口
@@ -78,8 +67,6 @@ def main():
             
     RenderAbout.RenderAbout()
 
-
-
 # -----------------------------------------------------------------------------
 # 初步项目展示
 # -----------------------------------------------------------------------------
@@ -96,9 +83,6 @@ def RenderDataPreview():
         with col2:
             st.dataframe(st.session_state.df.head(8), use_container_width=True)
     st.markdown("---")
-
-
-
 
 # -----------------------------------------------------------------------------
 # 因为这是第一版本 所以有点丑陋 不过问题不大 TODO: 二版修改 if elif 
@@ -119,10 +103,6 @@ def Results():
         BarRenderAnalysisResults.BarRenderAnalysisResults()
     else:
         st.info("👈 请在左侧输入预测值,显示预测分析图", icon="ℹ️")
-
-
-
-
 
 if __name__ == "__main__":
     main()

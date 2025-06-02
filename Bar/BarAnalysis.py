@@ -60,3 +60,4 @@ class BarAnalysis():
         ax2.set_ylabel(x_label, fontsize=labelfontsize)
         
         return fig1,fig2
+    

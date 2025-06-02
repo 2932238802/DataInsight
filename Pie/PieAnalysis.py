@@ -16,9 +16,7 @@ class PieAnalysis:
         shadow = st.session_state.pieshadow
         startangle = st.session_state.piestartangle
         pietitlename = st.session_state.pietitle_name
-        # color = st.session_state.piecolor_theme
         df = st.session_state.df
-        
         
         ax.pie(
             df[sizes],
