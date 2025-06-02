@@ -27,6 +27,4 @@
 
 ---
 © 2025.5 LosAgelous(2932238802)工作室
-
 ---
-[项目源码](https://github.com/2932238802/DataInsight.git)
