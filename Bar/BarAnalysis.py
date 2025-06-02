@@ -1,9 +1,16 @@
-
+# 库
 import matplotlib.pyplot as plt
 import numpy as np
 import streamlit as st
 
 class BarAnalysis():
+    """
+    柱状图：
+        分析逻辑
+        绘画逻辑
+    fig1,fig2:
+        分别是竖着和横着的
+    """
     
     @staticmethod
     def Draw():
@@ -45,11 +52,11 @@ class BarAnalysis():
             height=barheight
         )
         
-        ax1.set_title(title, fontsize=15)
+        ax1.set_title(title, fontsize=labelfontsize)
         ax1.set_xlabel(x_label, fontsize=labelfontsize)
-        ax1.set_ylabel(y_label, fontsize=12)
-        ax2.set_title(title, fontsize=15)
+        ax1.set_ylabel(y_label, fontsize=labelfontsize)
+        ax2.set_title(title, fontsize=labelfontsize)
         ax2.set_xlabel(y_label, fontsize=labelfontsize)
-        ax2.set_ylabel(x_label, fontsize=12)
+        ax2.set_ylabel(x_label, fontsize=labelfontsize)
         
         return fig1,fig2

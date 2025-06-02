@@ -6,7 +6,7 @@ import pandas as pd
 from common import pltconfig
 import seaborn as sns
 
-def RenderHeatMap(numerical_cols):
+def RenderHeatMap():
     df = st.session_state.df
     for row_index_label in df.index:
         for col_name in df.columns:

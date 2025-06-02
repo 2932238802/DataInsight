@@ -68,10 +68,11 @@ def RenderPie():
             key = "pie_labels",
         )
     
+    y_option = [i for i in df.columns if i != st.session_state.pielabels]
     with sizes:
         st.session_state.piesizes = st.selectbox(
             label = "选择对应的数据列",
-            options= df.columns,
+            options= y_option,
             index=0,
             key = "pie_sizes",
         )

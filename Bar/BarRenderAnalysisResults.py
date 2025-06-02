@@ -4,11 +4,15 @@ import streamlit as st
 from common import convert
 
 def BarRenderAnalysisResults():
+    """
+    BarRenderAnalysisResults:
+        渲染函数
+    """
+    
     st.info("Debug")
     if st.session_state.get('bar_1') is not None and st.session_state.get('bar_2') is not None:
         with st.expander("📈 柱状图", expanded=True):
             col1, col2 = st.columns([5, 1])
-            
             
             with col1:
                 
@@ -16,6 +20,7 @@ def BarRenderAnalysisResults():
                 st.pyplot(st.session_state.bar_2)
             
             with col2:
+                # ConvertPltToBytes 封装的 二进制函数
                 plot_bytes_1 = convert.ConvertPltToBytes(st.session_state.bar_1)
                 plot_bytes_2 = convert.ConvertPltToBytes(st.session_state.bar_2)
                 

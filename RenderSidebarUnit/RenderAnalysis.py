@@ -6,6 +6,7 @@ from HeatMap.RenderHeatMap import RenderHeatMap
 from Radar.RenderRadar import RenderRadar
 from Pie.RenderPie import RenderPie
 from Bar.RenderBar import RenderBar
+from SA.RenderSA import RenderSA
 import default.InitSessionState
 
 
@@ -46,8 +47,7 @@ def RenderAnalysis():
             "简单线性回归图",
             "柱状图&条形图",
             "饼图",
-            "箱线图",
-            "词云"
+            "模拟退火"
         ],
         
         key="plot_type_selector",
@@ -57,12 +57,12 @@ def RenderAnalysis():
     if plot_type == "简单线性回归图":
         with st.expander("🛠️ 线性回归参数设置", expanded=True):
             default.InitSessionState.InitSessionState()
-            RenderLinearRegression(numerical_cols)
+            RenderLinearRegression()
     
     if plot_type == "热力图":
         with st.expander("🛠️ 热力图参数设置", expanded=True):
             default.InitSessionState.InitSessionState()
-            RenderHeatMap(numerical_cols)
+            RenderHeatMap()
             
     if plot_type == "雷达图":
         with st.expander("🛠️ 雷达图参数设置", expanded=True):
@@ -78,3 +78,9 @@ def RenderAnalysis():
         with st.expander("🛠️ 柱状图&条形图参数设置", expanded=True):
             default.InitSessionState.InitSessionState()
             RenderBar()
+    
+    if plot_type == "模拟退火":
+        with st.expander(" ✍️ 模拟退火算法",expanded=True):
+            
+            default.InitSessionState.InitSessionState()
+            RenderSA()

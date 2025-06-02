@@ -7,7 +7,7 @@ from common import pltconfig
 
 
 # 侧边栏个性化 线性回归 分析参数
-def RenderLinearRegression(numerical_cols):
+def RenderLinearRegression():
     
     #     st.selectbox(
     #     label,          # 下拉菜单的标签（字符串）
@@ -50,18 +50,19 @@ def RenderLinearRegression(numerical_cols):
     with col1:
         st.session_state.lrX = st.selectbox(
             "选择自变量X:", 
-            numerical_cols, 
+            options= df.columns,
             index=0, 
             key="X_select"
             )
-        
+    
+    y_option = [i for i in df.columns if i != st.session_state.lrX]
     with col2:
         st.session_state.lry = st.selectbox(
-            "选择因变量y:", 
-            numerical_cols, 
-            index=1 if len(numerical_cols)>1 else 0, 
-            key="y_select")
-    
+            label="选择因变量y:", 
+            options= y_option,
+            index=0,
+            key="y_select"
+        )
     
     # 选择高度和宽度
     lrcol_width,lrcol_height = st.columns(2)
